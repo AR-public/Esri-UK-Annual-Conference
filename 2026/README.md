@@ -46,7 +46,7 @@ Code demonstrating how to work with ArcPy inside ArcGIS Pro, using the Network A
 
 Code demonstrating how to combine the ArcGIS API for Python, `arcpy`, and open-source Python tools inside an **ArcGIS Notebook** to perform location suitability analysis entirely in the browser — no desktop software and no data downloads required.
 
-The scenario: The presenters decide to open a bakery and need to figure out which of three candidate locations sits in a neighbourhood that most closely resembles the areas where existing bakeries already succeed.
+The scenario: Ahmad and Ben decide to open a bakery and need to figure out which of three candidate locations sits in a neighbourhood that most closely resembles the areas where existing bakeries already succeed.
 
 | File                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
