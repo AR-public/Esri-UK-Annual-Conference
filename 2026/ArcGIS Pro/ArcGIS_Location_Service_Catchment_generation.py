@@ -126,10 +126,9 @@ def main():
     arcpy.AddMessage("Summarizing census data within service area...")
 
     # Process: Summarize Within (SummarizeWithin) (analysis)
-    _15_min_walking_area_ModelBuilder_SummarizeWithin = "C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\walking_area_15min_SummarizeWithin"
     arcpy.AddMessage(f"Running Summarize Within against '{output_polygons}'...")
-    arcpy.analysis.SummarizeWithin(in_polygons=output_polygons, in_sum_features=output_polygons, out_feature_class=_15_min_walking_area_ModelBuilder_SummarizeWithin, keep_all_polygons="KEEP_ALL", sum_fields=[["B19049_001E", "Mean"], ["B19053_001E", "Mean"]], sum_shape="ADD_SHAPE_SUM", shape_unit="SQUAREMILES")
-    arcpy.AddMessage(f"Summarize Within complete. Output: {_15_min_walking_area_ModelBuilder_SummarizeWithin}")
+    arcpy.analysis.SummarizeWithin(in_polygons=output_polygons, in_sum_features=census_data, out_feature_class=output_summary, keep_all_polygons="KEEP_ALL", sum_fields=[["B19049_001E", "Mean"], ["B19053_001E", "Mean"]], sum_shape="ADD_SHAPE_SUM", shape_unit="SQUAREMILES")
+    arcpy.AddMessage(f"Summarize Within complete. Output: {output_summary}")
 
     arcpy.AddMessage(f"Census summary saved to: {output_summary}")
 

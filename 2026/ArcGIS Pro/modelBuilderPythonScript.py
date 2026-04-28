@@ -11,10 +11,10 @@ def generateWalkingArea():  # generateWalkingArea
     # To allow overwriting outputs change overwriteOutput option to True.
     arcpy.env.overwriteOutput = False
 
-    arcpy.ImportToolbox(r"c:\users\araja\appdata\local\programs\arcgis\pro\Resources\ArcToolbox\toolboxes\Analysis Tools.tbx")
-    Streets_ND = "C:\\Users\\ARaja\\Downloads\\Network_Analyst_Pro_Tutorial\\Network Analyst\\Tutorial\\SanFrancisco.gdb\\Transportation\\Streets_ND"
-    standing_location = "C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\standing_location"
-    census_summary_lyrx = "C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\census_summary.lyrx"
+    arcpy.ImportToolbox(r"c:\users\<username>\appdata\local\programs\arcgis\pro\Resources\ArcToolbox\toolboxes\Analysis Tools.tbx")
+    Streets_ND = "C:\\Users\\<username>\\Network_Analyst_Pro\\Network Analyst\\Transportation\\Streets_ND"
+    standing_location = "C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\standing_location"
+    census_summary_lyrx = "C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\census_summary.lyrx"
 
     # Process: Make Service Area Analysis Layer (MakeServiceAreaAnalysisLayer) (na)
     walking_area_analysis_layer = arcpy.na.MakeServiceAreaAnalysisLayer(network_data_source=Streets_ND, layer_name="15_minute_walking_area", travel_mode="Driving Distance", cutoffs=[15], polygon_detail="HIGH", geometry_at_overlaps="OVERLAP")[0]
@@ -29,13 +29,13 @@ def generateWalkingArea():  # generateWalkingArea
     # SelectData Utility is not implemented 
 
     # Process: Summarize Within (SummarizeWithin) (analysis)
-    _15_min_walking_area_ModelBuilder_SummarizeWithin = "C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\15_min_walking_area_ModelBuilder_SummarizeWithin"
-    model_output_grouped_table = "C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\model_output_grouped_table"
+    _15_min_walking_area_ModelBuilder_SummarizeWithin = "C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\15_min_walking_area_ModelBuilder_SummarizeWithin"
+    model_output_grouped_table = "C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb\\model_output_grouped_table"
     arcpy.analysis.SummarizeWithin(in_polygons=_15_minute_walking_area, in_sum_features=census_summary_lyrx, out_feature_class=_15_min_walking_area_ModelBuilder_SummarizeWithin, keep_all_polygons="KEEP_ALL", sum_fields=[["I38790D0", "Mean"]], sum_shape="ADD_SHAPE_SUM", shape_unit="SQUAREKILOMETERS", out_group_table=model_output_grouped_table)
 
     return walking_area_analysis_layer
 
 if __name__ == '__main__':
     # Global Environment settings
-    with arcpy.EnvManager(scratchWorkspace="C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb", workspace="C:\\Users\\ARaja\\OneDrive - ESRI (UK) Ltd\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb"):
-        generateWalkingArea(*argv[1:])
+    with arcpy.EnvManager(scratchWorkspace="C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb", workspace="C:\\Users\\<username>\\Documents\\ArcGIS\\Projects\\AC26 - ArcPy\\AC26 - ArcPy.gdb"):
+     generateWalkingArea(*argv[1:])
