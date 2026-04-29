@@ -2,6 +2,14 @@
 
 This folder contains code from the **2026 Esri UK Annual Conference**. The two sub-folders each correspond to one of the two ArcPy demos presented at the conference.
 
+## Overview
+
+This session explores automating site suitability analysis with Python across ArcGIS Pro and ArcGIS Online.  
+ 
+In ArcGIS Pro, we show how to convert a multi-step site suitability workflow into a single Python tool with minimal hands-on coding required, and how to share it with colleagues who can add it to their own workflows.  
+ 
+The ArcGIS Online demo accesses this script as a Python module inside an ArcGIS Notebook. It uses it to solve a real suitability problem - ranking candidate locations by how closely they match the catchment profile of existing businesses - all from a browser! 
+
 ## Demos
 
 ### ArcGIS Pro
@@ -48,8 +56,8 @@ Code demonstrating how to combine the ArcGIS API for Python, `arcpy`, and open-s
 
 The scenario: Ahmad and Ben decide to open a bakery and need to figure out which of three candidate locations sits in a neighbourhood that most closely resembles the areas where existing bakeries already succeed.
 
-| File                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| File                                                                                                    | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`Where's_the_best_place_for_our_bakery.ipynb`](ArcGIS%20Online/b03bd5244db64ee7a89e724c474b13dd.ipynb) | End-to-end suitability notebook. Queries Overture Maps on Amazon S3 for existing bakeries, generates 15-minute walking catchments via the ArcGIS routing service, profiles each catchment using Census 2021 occupation data, scores three candidate locations against the benchmark, visualises the results, and publishes the output back to ArcGIS Online as hosted feature layers. |
 
 #### What the notebook does
